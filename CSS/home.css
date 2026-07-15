@@ -1,0 +1,58 @@
+/* DASHBOARD */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.welcome {
+    grid-column: 1 / -1;
+}
+
+
+/* HABITS */
+
+.habit-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.habit-card {
+    background-color: #0b0f19;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.habit-card button {
+    margin-top: 15px;
+}
+
+
+/* COMPLETE BUTTON */
+
+.complete-btn.completed {
+    background-color: #009d4c;
+    color: black;
+}
+
+
+/* MOBILE */
+
+@media (max-width:768px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome {
+        grid-column: auto;
+    }
+
+    .habit-list {
+        grid-template-columns: 1fr;
+    }
+
+}

@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aegis | Personal Growth System</title>
-    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/global.css">
+    <link rel="stylesheet" href="./CSS/home.css">
 </head>
 
 <body>
@@ -15,10 +16,11 @@
             <h1>Aegis</h1>
 
             <div class="nav-actions">
-                <a href="#">Home</a>
-                <a href="#">Status</a>
-                <a href="#">Create</a>
-                <a href="#">Login</a>
+                <a href="index.html">Home</a>
+                <a href="status.html">Status</a>
+                <a href="cultivate.html">Cultivate</a>
+                <a href="eliminate.html">Eliminate</a>
+                <a href="login.html">Login</a>
             </div>
         </nav>
     </header>
@@ -31,35 +33,35 @@
             <p>Your personal growth system.</p>
         </section>
 
-<section class="habits">
+        <section class="habits">
 
-    <h2>Today's Habits</h2>
+            <h2>Today's Habits</h2>
 
-    <div class="habit-list">
+            <div class="habit-list">
 
-        <div class="habit-card">
-            <h3>Learn Programming</h3>
-            <p>Category: Learning</p>
-            <button class="complete-btn">Complete</button>
-        </div>
-
-
-        <div class="habit-card">
-            <h3>Exercise</h3>
-            <p>Category: Health</p>
-            <button class="complete-btn">Complete</button>
-        </div>
+                <div class="habit-card">
+                    <h3>Learn Programming</h3>
+                    <p>Category: Learning</p>
+                    <button class="complete-btn">Complete</button>
+                </div>
 
 
-        <div class="habit-card">
-            <h3>Read</h3>
-            <p>Category: Knowledge</p>
-            <button class="complete-btn">Complete</button>
-        </div>
+                <div class="habit-card">
+                    <h3>Exercise</h3>
+                    <p>Category: Health</p>
+                    <button class="complete-btn">Complete</button>
+                </div>
 
-    </div>
 
-</section>
+                <div class="habit-card">
+                    <h3>Read</h3>
+                    <p>Category: Knowledge</p>
+                    <button class="complete-btn">Complete</button>
+                </div>
+
+            </div>
+
+        </section>
 
         <section class="reflection">
             <h2>Daily Reflection</h2>
@@ -67,27 +69,27 @@
             <textarea placeholder="Write about your day..."></textarea>
         </section>
 
-<section class="progress">
+        <section class="progress">
 
-    <h2>Your Progress</h2>
+            <h2>Your Progress</h2>
 
-    <p>Completed:
-        <span id="completed-count">0</span>
-    </p>
+            <p>Completed:
+                <span id="completed-count">0</span>
+            </p>
 
-<p>
-    Priorities Completed:
-    <span id="completed-count">0</span>/3
-</p>
+            <p>
+                Priorities Completed:
+                <span id="completed-count">0</span>/3
+            </p>
 
-<p id="star-rating">☆☆☆</p>
+            <p id="star-rating">☆☆☆</p>
 
-</section>
+        </section>
     </main>
 
     <!-- Footer Section -->
     <footer></footer>
-    <script src="./JS/brain.js"></script>
+    <script src="./JS/home.js"></script>
 </body>
 
 </html>

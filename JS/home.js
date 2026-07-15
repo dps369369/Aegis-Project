@@ -1,7 +1,10 @@
+// HOME PAGE
+
 const completeButtons = document.querySelectorAll(".complete-btn");
 
 const completedCount = document.getElementById("completed-count");
 const starRating = document.getElementById("star-rating");
+
 
 function updateProgress() {
 
@@ -12,15 +15,19 @@ function updateProgress() {
     let stars = "";
 
     for (let i = 1; i <= 3; i++) {
+
         if (i <= completed) {
             stars += "⭐";
         } else {
             stars += "☆";
         }
+
     }
 
     starRating.textContent = stars;
+
 }
+
 
 completeButtons.forEach(button => {
 
@@ -35,8 +42,10 @@ completeButtons.forEach(button => {
         }
 
         updateProgress();
+
     });
 
 });
+
 
 updateProgress();
