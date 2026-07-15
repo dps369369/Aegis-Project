@@ -1,3 +1,32 @@
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+
+    .nav-actions {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+
+    .welcome {
+        grid-column: auto;
+    }
+
+}
+
+
+
 
 * {
     margin: 0;
@@ -120,4 +149,11 @@ a:hover {
 
 .habit-card button {
     margin-top: 15px;
+}
+
+
+/* Complete-btn */
+.complete-btn.completed {
+    background-color: #009d4c;
+    color: black;
 }
