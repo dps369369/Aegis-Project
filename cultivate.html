@@ -6,18 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Aegis | Cultivate</title>
-    <link rel="stylesheet" href="./CSS/global.css">
-    <link rel="stylesheet" href="./CSS/cultivate.css">
+    <link rel="stylesheet" href="./CSS/global.css" />
+    <link rel="stylesheet" href="./CSS/cultivate.css" />
 </head>
 
-
 <body>
-
     <!-- Header -->
     <header>
-
         <nav>
-
             <h1>Aegis</h1>
 
             <div class="nav-actions">
@@ -27,23 +23,15 @@
                 <a href="eliminate.html">Eliminate</a>
                 <a href="login.html">Login</a>
             </div>
-
         </nav>
-
     </header>
-
 
     <!-- Cultivate System -->
     <main>
-
         <section class="cultivate">
-
             <h2>Cultivate</h2>
 
-            <p>
-                Build the habits that shape your future.
-            </p>
-
+            <p>Build the habits that shape your future.</p>
 
             <form id="cultivate-form">
 
@@ -51,46 +39,36 @@
                     Habit Name
                 </label>
 
-                <input id="habit-name" type="text" placeholder="Example:Programming" required>
+                <input id="habit-name" name="habit-name" type="text" placeholder="Example:Programming" required />
 
 
                 <label for="habit-category">
                     Category
                 </label>
 
-                <input id="habit-category" type="text" placeholder="Example: Skill" required>
+                <input id="habit-category" name="habit-category" type="text" placeholder="Example: Skill" required />
 
 
                 <label for="habit-purpose">
                     Purpose
                 </label>
 
-                <textarea id="habit-purpose" placeholder="Why does this matter?" required></textarea>
+                <textarea id="habit-purpose" name="habit-purpose" placeholder="Why does this matter?"></textarea>
 
 
                 <button type="submit">
                     Start Cultivating
                 </button>
 
-
             </form>
-
         </section>
-
     </main>
 
+    <footer></footer>
 
-    <footer>
-
-    </footer>
-
-    <div id="toast" class="toast">
-        Habit cultivated successfully 🌱
-    </div>
-
+    <div id="toast" class="toast">Habit cultivated successfully 🌱</div>
 
     <script src="./JS/cultivate.js"></script>
-
 </body>
 
 </html>
