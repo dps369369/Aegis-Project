@@ -12,34 +12,68 @@ if (habitContainer) {
         localStorage.getItem("habits")
     ) || [];
 
+    const emptyState = document.getElementById("empty-state");
+
+    if (habits.length === 0) {
+
+        emptyState.style.display = "block";
+
+        habitContainer.style.display = "none";
+
+    } else {
+
+        emptyState.style.display = "none";
+
+        habitContainer.style.display = "grid";
+
+    }
+
+
+
 
     habits.forEach(function (habit) {
 
 
         const card = document.createElement("div");
 
+
         card.classList.add("habit-card");
+
 
         card.dataset.id = habit.id;
 
 
+
         card.innerHTML = `
 
-    <h3>${habit.name}</h3>
+            <h3>${habit.name}</h3>
 
-    <p>Category: ${habit.category}</p>
+            <p>Category: ${habit.category}</p>
 
-    <p>${habit.purpose}</p>
+            <p>Why this matters: ${habit.purpose}</p>
 
-    <button class="complete-btn">
-        Complete
-    </button>
 
-    <button class="delete-btn">
-        Delete
-    </button>
+            <button class="complete-btn">
+                ${habit.completed ? "Completed ✅" : "Complete"}
+            </button>
 
-`;
+
+            <button class="delete-btn">
+                Delete
+            </button>
+
+        `;
+
+
+
+        // Restore completed style
+
+        if (habit.completed) {
+
+            card.querySelector(".complete-btn")
+                .classList.add("completed");
+
+        }
 
 
 
@@ -49,6 +83,7 @@ if (habitContainer) {
     });
 
 }
+
 
 
 
@@ -69,35 +104,43 @@ function updateProgress() {
 
 
 
-    completedCount.textContent = completed;
+    if (completedCount) {
 
-
-
-    let stars = "";
-
-
-
-    for (let i = 1; i <= 3; i++) {
-
-
-        if (i <= completed) {
-
-            stars += "⭐";
-
-        } else {
-
-            stars += "☆";
-
-        }
+        completedCount.textContent = completed;
 
     }
 
 
 
-    starRating.textContent = stars;
+    if (starRating) {
+
+
+        let stars = "";
+
+
+        for (let i = 1; i <= 3; i++) {
+
+
+            if (i <= completed) {
+
+                stars += "⭐";
+
+            } else {
+
+                stars += "☆";
+
+            }
+
+        }
+
+
+        starRating.textContent = stars;
+
+    }
 
 
 }
+
 
 
 
@@ -113,6 +156,42 @@ completeButtons.forEach(button => {
 
 
     button.addEventListener("click", function () {
+
+
+        const card = this.parentElement;
+
+
+        const habitId = card.dataset.id;
+
+
+
+        let habits = JSON.parse(
+            localStorage.getItem("habits")
+        ) || [];
+
+
+
+        habits = habits.map(function (habit) {
+
+
+            if (habit.id == habitId) {
+
+                habit.completed = !habit.completed;
+
+            }
+
+
+            return habit;
+
+
+        });
+
+
+
+        localStorage.setItem(
+            "habits",
+            JSON.stringify(habits)
+        );
 
 
 
@@ -139,11 +218,11 @@ completeButtons.forEach(button => {
         updateProgress();
 
 
-
     });
 
 
 });
+
 
 
 
@@ -153,17 +232,25 @@ completeButtons.forEach(button => {
 updateProgress();
 
 
+
+
+
 // DELETE HABIT SYSTEM
+
 
 const deleteButtons = document.querySelectorAll(".delete-btn");
 
 
+
 deleteButtons.forEach(button => {
+
 
     button.addEventListener("click", function () {
 
 
+
         const card = this.parentElement;
+
 
         const habitId = card.dataset.id;
 
@@ -177,7 +264,9 @@ deleteButtons.forEach(button => {
 
         habits = habits.filter(function (habit) {
 
+
             return habit.id != habitId;
+
 
         });
 
@@ -193,6 +282,10 @@ deleteButtons.forEach(button => {
         card.remove();
 
 
+        updateProgress();
+
+
     });
+
 
 });
