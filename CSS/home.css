@@ -110,3 +110,84 @@
 
 }
 
+/* EDIT MODAL */
+
+
+.edit-modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.7);
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+
+.edit-box {
+
+    background: #151b2b;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    width: 350px;
+
+}
+
+
+
+.edit-box input,
+.edit-box textarea {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    border: none;
+
+}
+
+
+
+.edit-box textarea {
+
+    min-height: 100px;
+
+}
+
+
+
+.edit-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+}
+
+
+
+.edit-actions button {
+
+    flex: 1;
+
+    padding: 10px;
+
+    cursor: pointer;
+
+}

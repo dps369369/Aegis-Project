@@ -57,6 +57,12 @@ if (habitContainer) {
                 ${habit.completed ? "Completed ✅" : "Complete"}
             </button>
 
+            <button class="edit-btn">
+                Edit
+            </button>
+            
+            
+
 
             <button class="delete-btn">
                 Delete
@@ -286,6 +292,133 @@ deleteButtons.forEach(button => {
 
 
     });
+
+
+});
+
+
+// EDIT HABIT SYSTEM
+
+
+const editButtons = document.querySelectorAll(".edit-btn");
+
+
+const editModal = document.getElementById("edit-modal");
+
+const editName = document.getElementById("edit-name");
+
+const editCategory = document.getElementById("edit-category");
+
+const editPurpose = document.getElementById("edit-purpose");
+
+const saveEdit = document.getElementById("save-edit");
+
+const cancelEdit = document.getElementById("cancel-edit");
+
+
+let currentHabitId = null;
+
+
+
+editButtons.forEach(button => {
+
+
+    button.addEventListener("click", function(){
+
+
+        const card = this.parentElement;
+
+
+        currentHabitId = card.dataset.id;
+
+
+
+        let habits = JSON.parse(
+            localStorage.getItem("habits")
+        ) || [];
+
+
+
+        const habit = habits.find(function(habit){
+
+            return habit.id == currentHabitId;
+
+        });
+
+
+
+        editName.value = habit.name;
+
+        editCategory.value = habit.category;
+
+        editPurpose.value = habit.purpose;
+
+
+
+        editModal.style.display = "flex";
+
+
+    });
+
+
+});
+
+
+
+
+
+saveEdit.addEventListener("click", function(){
+
+
+    let habits = JSON.parse(
+        localStorage.getItem("habits")
+    ) || [];
+
+
+
+    habits = habits.map(function(habit){
+
+
+        if(habit.id == currentHabitId){
+
+
+            habit.name = editName.value;
+
+            habit.category = editCategory.value;
+
+            habit.purpose = editPurpose.value;
+
+
+        }
+
+
+        return habit;
+
+
+    });
+
+
+
+    localStorage.setItem(
+        "habits",
+        JSON.stringify(habits)
+    );
+
+
+
+    location.reload();
+
+
+});
+
+
+
+
+
+cancelEdit.addEventListener("click", function(){
+
+
+    editModal.style.display = "none";
 
 
 });
