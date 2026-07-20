@@ -11,21 +11,14 @@
     <link rel="stylesheet" href="./CSS/eliminate.css" />
 </head>
 
-
 <body>
-
-
     <!-- Header -->
 
     <header>
-
         <nav>
-
             <h1>Aegis</h1>
 
-
             <div class="nav-actions">
-
                 <a href="index.html">Home</a>
 
                 <a href="witness.html">Witness</a>
@@ -34,113 +27,44 @@
 
                 <a href="eliminate.html">Eliminate</a>
 
-                <a href="login.html">Login</a>
-
+                <a href="settings.html">Settings</a>
             </div>
-
         </nav>
-
     </header>
-
-
 
     <!-- Eliminate System -->
 
-
     <main>
-
-
         <section class="eliminate">
-
-
             <h2>Eliminate</h2>
 
-
-            <p>
-                Break the chains that hold you back.
-            </p>
-
-
+            <p>Break the chains that hold you back.</p>
 
             <form id="eliminate-form">
+                <label for="chain-name"> What has control over you? </label>
 
+                <input id="chain-name" name="chain-name" type="text" placeholder="Example: Endless scrolling"
+                    required />
 
+                <label for="chain-trigger"> When does it usually appear? </label>
 
-                <label for="chain-name">
-                    What has control over you?
-                </label>
+                <input id="chain-trigger" name="chain-trigger" type="text" placeholder="Example: When I feel bored"
+                    required />
 
+                <label for="chain-reason"> Why must you break free? </label>
 
-                <input
-                    id="chain-name"
-                    name="chain-name"
-                    type="text"
-                    placeholder="Example: Endless scrolling"
-                    required
-                />
+                <textarea id="chain-reason" name="chain-reason" placeholder="Why does this matter?"></textarea>
 
-
-
-                <label for="chain-trigger">
-                    When does it usually appear?
-                </label>
-
-
-                <input
-                    id="chain-trigger"
-                    name="chain-trigger"
-                    type="text"
-                    placeholder="Example: When I feel bored"
-                    required
-                />
-
-
-
-                <label for="chain-reason">
-                    Why must you break free?
-                </label>
-
-
-                <textarea
-                    id="chain-reason"
-                    name="chain-reason"
-                    placeholder="Why does this matter?"
-                ></textarea>
-
-
-
-                <button type="submit">
-
-                    Begin Breaking Free
-
-                </button>
-
-
-
+                <button type="submit">Begin Breaking Free</button>
             </form>
-
-
         </section>
-
-
     </main>
-
-
 
     <footer></footer>
 
-
-
-    <div id="toast" class="toast">
-        Chain identified ⛓️‍💥
-    </div>
-
-
+    <div id="toast" class="toast">Chain identified ⛓️‍💥</div>
 
     <script src="./JS/eliminate.js"></script>
-
-
 </body>
-
 
 </html>

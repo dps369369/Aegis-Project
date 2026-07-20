@@ -235,3 +235,14 @@
 .chain-card button {
     margin-top: 15px;
 }
+
+/* BREAK CHAIN BUTTON */
+
+.break-btn.broken {
+
+    background-color: hsl(12, 79%, 57%);
+
+    color: black;
+
+}
+
