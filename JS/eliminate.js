@@ -192,6 +192,201 @@ if (eliminateForm) {
 
 
 
+        // EDIT CHAIN SYSTEM
+
+
+        const editChainButtons = document.querySelectorAll(".edit-chain-btn");
+
+
+        const editChainModal = document.getElementById("edit-chain-modal");
+
+
+        const editChainName = document.getElementById("edit-chain-name");
+
+        const editChainTrigger = document.getElementById("edit-chain-trigger");
+
+        const editChainReason = document.getElementById("edit-chain-reason");
+
+
+        const saveChainEdit = document.getElementById("save-chain-edit");
+
+
+        const cancelChainEdit = document.getElementById("cancel-chain-edit");
+
+
+
+        let currentChainId = null;
+
+
+
+
+
+        editChainButtons.forEach(button => {
+
+
+
+            button.addEventListener("click", function () {
+
+
+
+                const card = this.parentElement;
+
+
+
+                currentChainId = card.dataset.id;
+
+
+
+
+
+                let chains = JSON.parse(
+
+                    localStorage.getItem("chains")
+
+                ) || [];
+
+
+
+
+
+                const chain = chains.find(function (chain) {
+
+
+                    return chain.id == currentChainId;
+
+
+                });
+
+
+
+
+
+                editChainName.value = chain.name;
+
+
+                editChainTrigger.value = chain.trigger;
+
+
+                editChainReason.value = chain.reason;
+
+
+
+
+
+                editChainModal.style.display = "flex";
+
+
+
+            });
+
+
+
+        });
+
+
+
+
+
+
+
+
+        if (saveChainEdit) {
+
+
+
+            saveChainEdit.addEventListener("click", function () {
+
+
+
+                let chains = JSON.parse(
+
+                    localStorage.getItem("chains")
+
+                ) || [];
+
+
+
+
+
+                chains = chains.map(function (chain) {
+
+
+
+                    if (chain.id == currentChainId) {
+
+
+
+                        chain.name = editChainName.value;
+
+
+                        chain.trigger = editChainTrigger.value;
+
+
+                        chain.reason = editChainReason.value;
+
+
+
+                    }
+
+
+
+                    return chain;
+
+
+
+                });
+
+
+
+
+
+                localStorage.setItem(
+
+                    "chains",
+
+                    JSON.stringify(chains)
+
+                );
+
+
+
+
+
+                location.reload();
+
+
+
+            });
+
+
+        }
+
+
+
+
+
+
+
+
+        if (cancelChainEdit) {
+
+
+
+            cancelChainEdit.addEventListener("click", function () {
+
+
+
+                editChainModal.style.display = "none";
+
+
+
+            });
+
+
+        }
+
+
+
 
 
 

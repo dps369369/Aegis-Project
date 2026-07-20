@@ -13,12 +13,6 @@
 
 /* HABITS */
 
-.habit-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-
 .habit-card {
     background-color: #0b0f19;
     padding: 20px;
@@ -221,4 +215,23 @@
 
     gap: 20px;
 
+}
+
+/* chain list */
+
+.chain-list { 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.chain-card {
+    background-color: #0b0f19;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.chain-card button {
+    margin-top: 15px;
 }

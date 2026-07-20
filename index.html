@@ -4,121 +4,347 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Aegis | Personal Growth System</title>
+
     <link rel="stylesheet" href="./CSS/global.css">
     <link rel="stylesheet" href="./CSS/home.css">
+
 </head>
 
+
 <body>
+
+
     <!-- Header Section -->
+
     <header>
+
         <nav>
+
             <h1>Aegis</h1>
 
+
             <div class="nav-actions">
+
                 <a href="index.html">Home</a>
+
                 <a href="status.html">Status</a>
+
                 <a href="cultivate.html">Cultivate</a>
+
                 <a href="eliminate.html">Eliminate</a>
+
                 <a href="login.html">Login</a>
+
             </div>
+
+
         </nav>
+
+
     </header>
 
+
+
+
+
     <!-- Main Content -->
+
+
     <main class="dashboard">
+
+
+
         <section class="welcome">
+
+
             <h2>Welcome to Aegis</h2>
 
+
             <p>Your personal growth system.</p>
+
+
         </section>
+
+
+
+
+
+        <!-- CULTIVATE -->
+
 
         <section class="habits">
 
-            <h2>Today's Habits</h2>
+
+            <h2>🌱 Today's Habits</h2>
+
+
 
             <div class="habit-list" id="habit-container">
 
+
             </div>
+
+
+
+
             <div id="empty-state" class="empty-state">
+
 
                 <h2>🌱</h2>
 
+
                 <h3>Your garden is empty.</h3>
 
-                <p>Plant your first habit to begin your journey.</p>
+
+                <p>
+                    Plant your first habit to begin your journey.
+                </p>
+
+
 
                 <a href="cultivate.html" class="cultivate-link">
+
                     + Cultivate Habit
+
                 </a>
 
+
             </div>
+
+
+
         </section>
+
+
+
+
+
+
+        <!-- ELIMINATE -->
+
+
+        <section class="chains">
+
+
+            <h2>⛓️‍💥 Active Chains</h2>
+
+
+
+            <div class="chain-list" id="chain-container">
+
+
+            </div>
+
+
+
+
+
+            <div id="chain-empty-state" class="empty-state">
+
+
+                <h2>⛓️</h2>
+
+
+                <h3>You are yet not free</h3>
+
+
+                <p>
+                    Identify what holds you back and begin breaking free.
+                </p>
+
+
+
+                <a href="eliminate.html" class="cultivate-link">
+
+                    + Eliminate Chain
+
+                </a>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+        <!-- REFLECTION -->
+
+
         <section class="reflection">
+
 
             <h2>Daily Reflection</h2>
 
+
+
             <textarea id="daily-reflection" name="daily-reflection" placeholder="Write about your day..."></textarea>
 
+
+
         </section>
+
+
+
+
+
+
+
+        <!-- PROGRESS -->
+
 
         <section class="progress">
 
+
             <h2>Your Progress</h2>
 
-            <p>Completed:
+
+
+            <p>
+                Completed:
                 <span id="completed-count">0</span>
             </p>
 
-            <p id="star-rating">☆☆☆</p>
+
+
+            <p id="star-rating">
+                ☆☆☆
+            </p>
+
+
 
         </section>
+
+
+
+
+
     </main>
 
+
+
+
+
+
+
     <!-- Footer Section -->
+
+
     <footer></footer>
+
+
+
+
+
+
+
     <!-- EDIT HABIT MODAL -->
 
+
     <div id="edit-modal" class="edit-modal">
+
 
 
         <div class="edit-box">
 
 
+
             <h2>Edit Habit</h2>
+
 
 
             <input id="edit-name" type="text" placeholder="Habit name">
 
 
+
             <input id="edit-category" type="text" placeholder="Category">
+
 
 
             <textarea id="edit-purpose" placeholder="Why does this matter?"></textarea>
 
 
 
+
+
             <div class="edit-actions">
 
 
+
                 <button id="save-edit">
+
                     Save
+
                 </button>
+
+
 
 
                 <button id="cancel-edit">
+
                     Cancel
+
                 </button>
+
 
 
             </div>
 
 
+
         </div>
 
 
+
     </div>
+
+
+    <!-- EDIT CHAIN MODAL -->
+
+    <div id="edit-chain-modal" class="edit-modal">
+
+        <div class="edit-box">
+
+            <h2>Edit Chain</h2>
+
+            <input id="edit-chain-name" type="text" placeholder="Chain name">
+
+            <input id="edit-chain-trigger" type="text" placeholder="Trigger">
+
+            <textarea id="edit-chain-reason" placeholder="Why do you want to break this chain?"></textarea>
+
+            <div class="edit-actions">
+
+                <button id="save-chain-edit">
+                    Save
+                </button>
+
+                <button id="cancel-chain-edit">
+                    Cancel
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
     <script src="./JS/home.js"></script>
+
+
 </body>
+
 
 </html>
