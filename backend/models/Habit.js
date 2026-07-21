@@ -1,46 +1,63 @@
 const mongoose = require("mongoose");
 
-const habitSchema = new mongoose.Schema({
+const habitSchema = new mongoose.Schema(
+    {
 
-    name: {
-        type: String,
-        required: true
+        name: {
+            type: String,
+            required: true,
+            trim: true
+        },
+
+
+        category: {
+            type: String,
+            required: true,
+            trim: true
+        },
+
+
+        purpose: {
+            type: String,
+            required: true,
+            trim: true
+        },
+
+
+        type: {
+            type: String,
+            enum: ["cultivate", "eliminate"],
+            required: true
+        },
+
+
+        status: {
+            type: String,
+            enum: ["active", "completed", "paused"],
+            default: "active"
+        },
+
+
+        streak: {
+            type: Number,
+            default: 0,
+            min: 0
+        },
+
+
+        rating: {
+            type: Number,
+            default: 0,
+            min: 0,
+            max: 5
+        }
+
+
     },
-
-    category: {
-        type: String,
-        required: true
-    },
-
-    purpose: {
-        type: String,
-        required: true
-    },
-
-    type: {
-        type: String,
-        enum: ["cultivate", "eliminate"],
-        required: true
-    },
-
-    status: {
-        type: String,
-        default: "active"
-    },
-
-    streak: {
-        type: Number,
-        default: 0
-    },
-
-    rating: {
-        type: Number,
-        default: 0
+    {
+        timestamps: true
     }
-
-}, {
-    timestamps: true
-});
+);
 
 
 module.exports = mongoose.model("Habit", habitSchema);
