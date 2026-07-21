@@ -5,7 +5,7 @@ const cultivateForm = document.getElementById("cultivate-form");
 
 if (cultivateForm) {
 
-    cultivateForm.addEventListener("submit", function (event) {
+    cultivateForm.addEventListener("submit", async function (event) {
 
         event.preventDefault();
 
@@ -44,90 +44,78 @@ if (cultivateForm) {
 
 
 
-        // Create Habit Object
+        // Habit data for backend
 
         const habit = {
-
-            id: Date.now(),
 
             name: habitName,
             category: habitCategory,
             purpose: habitPurpose,
-            completed: false
+            type: "cultivate"
 
         };
 
 
 
-        console.log(habit);
+        try {
+
+            const response = await fetch(
+                "http://localhost:369/api/habits",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify(habit)
+
+                }
+            );
+
+
+            const data = await response.json();
 
 
 
-        // GET EXISTING HABITS
+            if (response.ok) {
 
-        let habits = JSON.parse(
-            localStorage.getItem("habits")
-        ) || [];
+                console.log("Saved:", data);
 
 
+                const toast = document.getElementById("toast");
 
-        // CHECK HABIT LIMIT
+                toast.textContent = "Habit cultivated successfully 🌱";
 
-        if (habits.length >= 3) {
-
-            const toast = document.getElementById("toast");
-
-            toast.textContent = "Maximum 3 habits reached ⚠️";
-
-            toast.classList.add("show");
+                toast.classList.add("show");
 
 
-            setTimeout(function () {
+                setTimeout(function () {
 
-                toast.classList.remove("show");
+                    toast.classList.remove("show");
 
-            }, 3000);
+                }, 3000);
 
 
-            return;
+
+                cultivateForm.reset();
+
+
+            } else {
+
+                alert(data.error);
+
+            }
+
+
+
+        } catch (error) {
+
+            console.error("Server Error:", error);
+
+            alert("Could not connect to Aegis server.");
+
         }
-
-
-
-        // ADD NEW HABIT
-
-        habits.push(habit);
-
-
-
-        // SAVE HABITS
-
-        localStorage.setItem(
-            "habits",
-            JSON.stringify(habits)
-        );
-
-
-
-        // TOAST NOTIFICATION
-
-        const toast = document.getElementById("toast");
-
-
-        toast.classList.add("show");
-
-
-        setTimeout(function () {
-
-            toast.classList.remove("show");
-
-        }, 3000);
-
-
-
-        // RESET FORM
-
-        cultivateForm.reset();
 
 
     });
